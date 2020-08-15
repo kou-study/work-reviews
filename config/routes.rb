@@ -11,6 +11,6 @@ Rails.application.routes.draw do
   
   get 'movies/:category/:initial', to: 'movies#index', as: 'movies'
   
-  resources :movies, only: [:show, :new, :create]
+  resources :movies, only: [:show]
   resources :users, only: [:show, :new, :create]
 end
