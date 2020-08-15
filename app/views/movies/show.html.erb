@@ -1,0 +1,25 @@
+<h1>・作品詳細</h1>
+<div class="work">
+  <div class="row">
+    <div class="col-sm-6">
+      <div d-block, class="mb-2">
+        <%= image_tag @movie.image_path, :width => "100%" %>
+      </div>
+      <a href="#" class="btn btn-outline-success">お気に入り登録</a>
+      <p>評価：未実装</p>
+    </div>
+    <div class="col-sm-6", heigh="220">
+      <ul>
+        <li>作品名：<%= @movie.title %></li>
+        <li>制作：<%= @movie.company %></li>
+        <li>制作年：<%= @movie.year %>年</li>
+        <li>あらすじ
+          <div>
+            <%= @movie.synopsis %>
+          </div>      
+        </li>
+      </ul>
+    </div>  
+  </div>
+</div>
+<h2>・レビュー</h2>

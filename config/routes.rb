@@ -8,5 +8,9 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
+  
+  get 'movies/:category/:initial', to: 'movies#index', as: 'movies'
+  
+  resources :movies, only: [:show, :new, :create]
   resources :users, only: [:show, :new, :create]
 end
