@@ -1,24 +1,23 @@
 <h1>・作品リスト</h1>
-<% if @movies %>
-  <table class="table table-bordered">
-    <tr>
-      <th class="text-center", width="400">作品</th>
-      <th class ="text-center", width="400">あらすじ</th>
-    </tr>
-    <tr>
-      <% @movies.each do |movie| %>
-        <tr>
-          <td class="text-center">
-            <%= image_tag movie.image_path, :width => '100%'%>
-            <%= link_to movie.title, movie_path(movie) %>
-          </td>
-          <td>
-            <%= movie.synopsis %>
-          </td>
-        <tr>
-      <% end %>
-    </tr>
-  </table>
-<% else %>
-  作品がありません
-<% end %>
+表示が15件を超えると、ページネーションされます。
+
+<table class="table table-bordered">
+  <tr>
+    <th class="text-center", width="400">作品</th>
+    <th class ="text-center", width="400">あらすじ</th>
+  </tr>
+  <tr>
+    <% @movies.find_each do |movie| %>
+      <tr>
+        <td class="text-center">
+          <%= image_tag movie.image_path, :width => '100%'%>
+          <%= link_to movie.title, movie_path(movie) %>
+        </td>
+        <td>
+          <%= movie.synopsis %>
+        </td>
+      <tr>
+    <% end %>
+  </tr>
+</table>
+<%= paginate @movies %>

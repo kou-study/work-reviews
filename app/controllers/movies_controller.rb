@@ -1,6 +1,6 @@
 class MoviesController < ApplicationController
   def index
-    @movies = Movie.where(category: params[:category], initial: params[:initial])
+    @movies = Movie.where(category: params[:category], initial: params[:initial]).order('title').page(params[:page]).per(15)
   end
 
   def show
