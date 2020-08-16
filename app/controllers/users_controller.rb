@@ -22,18 +22,12 @@ class UsersController < ApplicationController
   end
   
   def favorites
-    @user = User.find(params[:id])
+
   end
   
   private
   
   def user_params
     params.require(:user).permit(:name, :password, :password_confirmation)
-  end
-  
-  def require_user_logged_in
-    unless logged_in?
-      redirect_to signup_path
-    end
   end
 end

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'toppages#index'
   
   get 'signup', to: 'users#new'
-  get 'favorites', to: 'users#favorites'
+  get 'users/:id/:favorites', to: 'users#favorites', as: 'favorites'
   
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
