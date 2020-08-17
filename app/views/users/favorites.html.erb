@@ -1,0 +1,48 @@
+<h1 class="p-3 mb-2 bg-light text-dark ">
+  <%= @user.name %>のお気に入り作品リスト
+  <span class="badge badge-secondary ml-3">登録件数：<%= @counts_favorite %></span>
+</h1>
+
+10件を超えると、ページネーションされます。
+<div class="row">
+  <div class="favorite-animation mt-3 col-6">
+    <table class="table table-bordered">
+      <thead class="bg-light">
+        <tr>
+          <th class="text-center", width="400">アニメ作品</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @favorite_movies.where(category: 0).find_each do |movie| %>
+          <tr>
+            <th class="text-center">
+              <%= image_tag movie.image_path, :width => '100%' %>
+              <%= link_to movie.title, movie_path(movie) %>
+            </th>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  
+  <div class="favorite-movie mt-3 col-6">
+    <table class="table table-bordered">
+      <thead class="bg-light">
+        <tr>
+          <th class="text-center", width="400">映画作品</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @favorite_movies.where(category: 1).find_each do |movie| %>
+          <tr>
+            <th class="text-center">
+              <%= image_tag movie.image_path, :width => '100%' %>
+              <%= link_to movie.title, movie_path(movie) %>
+            </th>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<%= paginate @favorite_movies %>

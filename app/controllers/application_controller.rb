@@ -8,4 +8,12 @@ class ApplicationController < ActionController::Base
            redirect_to login_url
         end
     end
+    
+    def counts_from_user(user)
+        @counts_favorite = user.favorite_movies.count
+    end
+    
+    def counts_from_movie(movie)
+        @counts_movie = movie.count
+    end
 end

@@ -7,9 +7,12 @@
       <div class="mb-2">
         <%= image_tag @movie.image_path, :width => '100%' %>
       </div>
-      <a href="#" class="btn btn-outline-success">お気に入り登録</a>
-      <p>評価：未実装</p>
+      <div class="d-flex justify-content-center">
+        <%= render 'favorites/favorite_button', movie: @movie %>
+      </div>
+      <p class="text-center">評価：未実装</p>
     </div>
+    
     <div class="col-sm-6", height="250">
       <ul>
         <li>作品名：<%= @movie.title %></li>

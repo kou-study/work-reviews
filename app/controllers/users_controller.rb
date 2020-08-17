@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :require_user_logged_in, only: [:show, :favorites]
+  before_action :correct_user, only: [:favorites]
   
   def show
     @user = User.find(params[:id])
@@ -22,12 +23,21 @@ class UsersController < ApplicationController
   end
   
   def favorites
-
+    @user = User.find(params[:id])
+    @favorite_movies = @user.favorite_movies.order(title: :desc).page(params[:page]).per(10)
+    counts_from_user(@user)
   end
   
   private
   
   def user_params
     params.require(:user).permit(:name, :password, :password_confirmation)
+  end
+  
+  def correct_user
+    @user = User.find(params[:id])
+    unless @user == current_user
+      redirect_to root_url
+    end
   end
 end

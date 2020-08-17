@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   root to: 'toppages#index'
   
   get 'signup', to: 'users#new'
-  get 'users/:id/:favorites', to: 'users#favorites', as: 'favorites'
   
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
@@ -12,5 +11,11 @@ Rails.application.routes.draw do
   get 'movies/:category/:initial', to: 'movies#index', as: 'movies'
   
   resources :movies, only: [:show]
-  resources :users, only: [:show, :new, :create]
+  resources :users, only: [:show, :new, :create] do
+    member do
+      get :favorites
+    end
+  end
+  
+  resources :favorites, only: [:create, :destroy]
 end

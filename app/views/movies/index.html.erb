@@ -1,6 +1,8 @@
-<h1 class="p-3 mb-2 bg-light text-dark">作品リスト</h1>
+<h1 class="p-3 mb-2 bg-light text-dark">作品リスト
+  <span class="badge badge-secondary ml-3">検索件数：<%= @counts_movie %></span>
+</h1>
 
-表示が15件を超えると、ページネーションされます。
+15件を超えると、ページネーションされます。
   
 <div class="work-info mt-3">
   <table class="table table-bordered">
@@ -14,10 +16,10 @@
       <% @movies.find_each do |movie| %>
         <tr>
           <th class="text-center">
-            <%= image_tag movie.image_path, :width => '100%'%>
+            <%= image_tag movie.image_path, :width => '100%' %>
             <%= link_to movie.title, movie_path(movie) %>
           </th>
-          <td height="250">
+          <td>
             <%= movie.synopsis %>
           </td>
         </tr>

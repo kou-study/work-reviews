@@ -3,6 +3,8 @@ class MoviesController < ApplicationController
   
   def index
     @movies = Movie.where(category: params[:category], initial: params[:initial]).order('title').page(params[:page]).per(15)
+    @count_movies = Movie.where(category: params[:category], initial: params[:initial])
+    counts_from_movie(@count_movies)
   end
 
   def show
