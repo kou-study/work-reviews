@@ -1,6 +1,6 @@
 <header class="mb-4">
   <nav class="navbar navbar-expand-sm navbar-light bg-light">
-    <a class="navbar-brand" href="/">
+    <a id="aplication-logo" class="navbar-brand" href="/">
       <%= image_tag'logo.jpg'%>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
@@ -14,7 +14,10 @@
           <li class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle ml-3 bg-dark text-white" data-toggle="dropdown">メニュー</a>
             <ul class="dropdown-menu dropdown-menu-right">
+              <li class="nav-item"><%= link_to 'トップページに戻る', root_path %></li>
+              <div class="dropdown-divider"></div>
               <li class="nav-item"><%= link_to 'お気に入り作品', favorites_user_path(current_user) %></li>
+              <div class="dropdown-divider"></div>
               <li class="nav-item"><%= link_to 'ログアウト', logout_path, method: :delete %></li>
             </ul>
           </li>
