@@ -9,3 +9,7 @@ th{
 tbody th img{
     width: 100%;
 }
+
+tbody td{
+    text-align: left;
+}
