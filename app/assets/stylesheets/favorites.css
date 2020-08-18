@@ -7,9 +7,9 @@ span{
 }
 
 th img{
+    height: 220px;
     width: 100%;
-    height: 300px;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 
