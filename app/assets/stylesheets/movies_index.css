@@ -1,0 +1,11 @@
+table{
+    text-align: center;
+}
+
+th{
+    width: 50%;
+}
+
+tbody th img{
+    width: 100%;
+}

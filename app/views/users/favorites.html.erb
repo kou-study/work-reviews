@@ -1,22 +1,25 @@
+<%= stylesheet_link_tag 'favorites' %>
+
 <h1 class="p-3 mb-2 bg-light text-dark ">
   <%= @user.name %>のお気に入り作品リスト
-  <span class="badge badge-secondary ml-3">登録件数：<%= @counts_favorite %></span>
+  <span class="badge badge-secondary">登録件数：<%= @counts_favorite %></span>
 </h1>
 
-10件を超えると、ページネーションされます。
+<p>10件を超えると、ページネーションされます。<p>
+
 <div class="row">
-  <div class="favorite-animation mt-3 col-6">
+  <div id="animation" class="col-6">
     <table class="table table-bordered">
       <thead class="bg-light">
         <tr>
-          <th class="text-center", width="400">アニメ作品</th>
+          <th>アニメ作品</th>
         </tr>
       </thead>
       <tbody>
-        <% @favorite_movies.where(category: 0).find_each do |movie| %>
+        <% @favorite_movies.where(category: 0).each do |movie| %>
           <tr>
             <th class="text-center">
-              <%= image_tag movie.image_path, :width => '100%' %>
+              <%= image_tag movie.image_path %>
               <%= link_to movie.title, movie_path(movie) %>
             </th>
           </tr>
@@ -25,18 +28,18 @@
     </table>
   </div>
   
-  <div class="favorite-movie mt-3 col-6">
+  <div id="movie" class="col-6">
     <table class="table table-bordered">
       <thead class="bg-light">
         <tr>
-          <th class="text-center", width="400">映画作品</th>
+          <th>映画作品</th>
         </tr>
       </thead>
       <tbody>
-        <% @favorite_movies.where(category: 1).find_each do |movie| %>
+        <% @favorite_movies.where(category: 1).each do |movie| %>
           <tr>
-            <th class="text-center">
-              <%= image_tag movie.image_path, :width => '100%' %>
+            <th>
+              <%= image_tag movie.image_path %>
               <%= link_to movie.title, movie_path(movie) %>
             </th>
           </tr>
@@ -45,4 +48,5 @@
     </table>
   </div>
 </div>
+
 <%= paginate @favorite_movies %>

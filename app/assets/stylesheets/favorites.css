@@ -1,0 +1,15 @@
+table{
+    text-align: center;
+}
+
+span{
+    text-align: right;
+}
+
+th img{
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+
