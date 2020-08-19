@@ -16,4 +16,9 @@ class ApplicationController < ActionController::Base
     def counts_from_movie(movie)
         @counts_movie = movie.count
     end
+    
+    def counts_post(movie)
+        @counts_post = movie.posts.count
+        @posts_average = movie.posts.average("evaluation") 
+    end
 end

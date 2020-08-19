@@ -6,6 +6,8 @@ class User < ApplicationRecord
     has_many :favorites
     has_many :favorite_movies, through: :favorites, source: :movie
     
+    has_many :posts
+    
     def favorite_add(movie)
         unless self.favorite_movies.include?(movie)
             self.favorites.find_or_create_by(user_id: self.id, movie_id: movie.id)
@@ -19,5 +21,9 @@ class User < ApplicationRecord
     
     def favorite?(movie)
         self.favorite_movies.include?(movie)
+    end
+    
+    def posting(movie, content, evaluation)
+        self.posts.build(user_id: self.id, movie_id: movie.id, content: content, evaluation: evaluation)
     end
 end

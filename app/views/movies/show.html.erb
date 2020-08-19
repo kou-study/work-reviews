@@ -1,16 +1,30 @@
-<h1 class="p-3 mb-3 bg-light text-dark">作品詳細</h1>
+<h1 class="p-3 mb-2 bg-light text-dark">作品詳細</h1>
+<p class="mb-5">ここでの「制作」は、アニメ作品の場合、アニメーション制作会社。映画作品の場合、映画監督のことを表しています。<br>
+                「評価」は、ユーザ評価の平均値をとっています。また、小数点以下2桁以上は四捨五入され、レビューがない場合は、初期値として0.0が適用されます。
+</p>
 
-ここでの「制作」は、アニメ作品の場合、アニメーション制作会社。映画作品の場合、映画監督のことを表しています。
-<div class="work-information mt-5">
+<div class="row avg_evaluation mb-2">
+  <div class="col-sm-6">
+    <% if @posts_average %>
+      <h3 class="text-center font-weight-bold">評価：<%= @posts_average.round(1) %> / 5.0</h3>
+    <% else %>
+      <h3 class="text-center font-weight-bold">評価：<%= @default_evaluation %> / 5.0</h3>
+    <% end %>
+  </div>
+</div>
+
+<div class="work-information mb-5">
   <div class="row">
     <div class="col-sm-6">
+      
       <div class="mb-2">
         <%= image_tag @movie.image_path, :width => '100%' %>
       </div>
-      <div class="d-flex justify-content-center">
+      <div class="d-flex justify-content-center mb-3">
         <%= render 'favorites/favorite_button', movie: @movie %>
       </div>
-      <p class="text-center">評価：未実装</p>
+
+      <p class="text-center"><%= @avg_posts %></p>
     </div>
     
     <div class="col-sm-6", height="250">
@@ -27,4 +41,18 @@
     </div>  
   </div>
 </div>
-<h2>・レビュー</h2>
+
+<div class="p-3 mb-3 bg-light text-dark">
+  <h2>レビュー
+    <span class="badge badge-secondary">件数：<%= @counts_post %></span>
+  </h2>
+</div>
+ 
+<p class="mb-3">最新のものは上に表示されます。20件を超えるとページネーションされます。評価は<span style="color: red">5点満点</span>です。</p>
+<p class="text-right"><%= link_to 'レビューを投稿する', posts_path(@movie)%></p>
+
+
+<%= render 'posts/posts', posts: @posts %>
+
+<%= paginate @posts %>
+

@@ -8,9 +8,13 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
   
+  get 'movies/:id/posts', to: 'movies#posts', as: 'posts'
   get 'movies/:category/:initial', to: 'movies#index', as: 'movies'
   
-  resources :movies, only: [:show]
+  post 'movies/:id/posts', to: 'posts#create'
+
+  resources :movies, only: [:show] 
+  
   resources :users, only: [:show, :new, :create] do
     member do
       get :favorites
@@ -18,4 +22,5 @@ Rails.application.routes.draw do
   end
   
   resources :favorites, only: [:create, :destroy]
+ 
 end

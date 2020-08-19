@@ -1,5 +1,5 @@
 <% if current_user.favorite?(movie) %>
-  <%= form_with(model: current_user.favorites.find_by(movie_id: movie.id, ), local: true, method: :delete) do |f| %>
+  <%= form_with(model: current_user.favorites.find_by(movie_id: movie.id), local: true, method: :delete) do |f| %>
     <%= hidden_field_tag :movie_id, movie.id %>
     <%= f.submit 'お気に入り解除', class: 'btn btn-danger' %>
   <% end %>
