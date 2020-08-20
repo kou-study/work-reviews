@@ -20,8 +20,6 @@ default: &default
 development:
   <<: *default
   database: work-reviews_development
-  charset: utf8
-  collation: utf8_general_ci
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -52,7 +50,10 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
+  charset: utf8
+  collation: utf8_bin
   pool: 5
   database: work-reviews_production
   username: work-reviews
   password: <%= ENV['WORK-REVIEWS_DATABASE_PASSWORD'] %>
+  
