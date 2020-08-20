@@ -18,7 +18,4 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
     @post = @movie.posts.build
   end
-  
-  def images
-  end
 end
