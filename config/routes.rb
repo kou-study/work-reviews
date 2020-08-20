@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   
   get 'movies/:id/posts', to: 'movies#posts', as: 'posts'
   get 'movies/:category/:initial', to: 'movies#index', as: 'movies'
+  get 'images', to: 'movies#images'
   
   post 'movies/:id/posts', to: 'posts#create'
 
