@@ -12,7 +12,7 @@
     <table class="table table-bordered">
       <thead class="bg-light">
         <tr>
-          <th>アニメ作品</th>
+          <th>アニメ作品<span class="badge badge-secondary ml-2"><%= @counts_ainmation %></span></th>
         </tr>
       </thead>
       <tbody>
@@ -32,7 +32,7 @@
     <table class="table table-bordered">
       <thead class="bg-light">
         <tr>
-          <th>映画作品</th>
+          <th>映画作品<span class="badge badge-secondary ml-2"><%= @counts_movie %></span></th>
         </tr>
       </thead>
       <tbody>
@@ -49,4 +49,6 @@
   </div>
 </div>
 
-<%= paginate @favorite_movies %>
+<% if @counts_ainmation > 10 || @counts_movie > 10 %>
+  <%= paginate @favorite_movies %>
+<% end %>

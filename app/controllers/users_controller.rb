@@ -24,6 +24,9 @@ class UsersController < ApplicationController
   
   def favorites
     @user = User.find(params[:id])
+    @counts_ainmation = @user.favorite_movies.where(category: 0).count
+    @counts_movie = @user.favorite_movies.where(category: 1).count
+    
     @favorite_movies = @user.favorite_movies.order(hurigana: :asc).page(params[:page]).per(10)
     counts_from_user(@user)
   end
