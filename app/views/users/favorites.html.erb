@@ -5,7 +5,7 @@
   <span class="badge badge-secondary">登録件数：<%= @counts_favorite %></span>
 </h1>
 
-<p>1ページあたりにおけるアニメ作品、映画作品の表示可能件数はそれぞれ10作品までです。<p>
+<p>1ページあたりにおけるアニメ作品、映画作品の表示可能件数はそれぞれ10作品までです。それを超えるとページネーションされます。<p>
 
 <div class="row">
   <div id="animation" class="col-6">
@@ -20,7 +20,7 @@
           <tr>
             <th class="text-center">
               <%= image_tag movie.image_path %>
-              <%= link_to movie.title, movie_path(movie) %>
+              <%= link_to movie.title.truncate(10), movie_path(movie) %>
             </th>
           </tr>
         <% end %>
@@ -40,7 +40,7 @@
           <tr>
             <th>
               <%= image_tag movie.image_path %>
-              <%= link_to movie.title, movie_path(movie) %>
+              <%= link_to movie.title.transcate(10), movie_path(movie) %>
             </th>
           </tr>
         <% end %>

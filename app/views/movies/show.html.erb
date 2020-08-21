@@ -49,8 +49,7 @@
 </div>
  
 <p class="mb-3">最新のものは上に表示されます。20件を超えるとページネーションされます。評価は<span style="color: red">5点満点</span>です。</p>
-<p class="text-right"><%= link_to 'レビューを投稿する', posts_path(@movie)%></p>
-
+<h4 class="text-right font-weight-bold"><%= link_to 'レビューを投稿する', posts_path(@movie)%></h4>
 
 <%= render 'posts/posts', posts: @posts %>
 
