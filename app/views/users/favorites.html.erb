@@ -20,7 +20,7 @@
           <tr>
             <th class="text-center">
               <%= image_tag movie.image_path %>
-              <%= link_to movie.title.truncate(10), movie_path(movie) %>
+              <%= link_to movie.title, movie_path(movie) %>
             </th>
           </tr>
         <% end %>
@@ -40,7 +40,7 @@
           <tr>
             <th>
               <%= image_tag movie.image_path %>
-              <%= link_to movie.title.transcate(10), movie_path(movie) %>
+              <%= link_to movie.title, movie_path(movie) %>
             </th>
           </tr>
         <% end %>
