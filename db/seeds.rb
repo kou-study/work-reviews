@@ -11,11 +11,14 @@ require "csv"
     User.create(name: 'test_user' + number.to_s, password: 'test' + number.to_s)
 end
 
+
 #csvファイル読み込み  
 CSV.foreach('db/movies.csv') do |row|
     Movie.create(:category => row[0], :title => row[1], :company => row[2], :year => row[3], :synopsis => row[4], :image_path => row[5], :initial => row[6], :hurigana => row[7])
 end
 
-CSV.foreach('db/animation_ki_gi.csv') do |row|
+
+CSV.foreach('db/animation_ki_ko_gi_go.csv') do |row|
     Movie.create(:category => row[0], :title => row[1], :company => row[2], :year => row[3], :synopsis => row[4], :image_path => row[5], :initial => row[6], :hurigana => row[7])
 end
+
