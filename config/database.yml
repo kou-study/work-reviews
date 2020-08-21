@@ -50,8 +50,6 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  charset: utf8
-  collation: utf8_bin
   pool: 5
   database: work-reviews_production
   username: work-reviews
