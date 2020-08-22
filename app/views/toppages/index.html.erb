@@ -1,5 +1,5 @@
 <% if logged_in? %>
-  <h1 class="p-3 mb-2 bg-light text-dark">このサイトについて</h1>
+  <h1 class="p-3 mb-2 bg-light text-dark" id="page-top">このサイトについて</h1>
   <p>
     ようこそ、<span class="font-weight-bold">「work-reviews」</span>へ。このサイトは、Webアプリケーション学習の集大成として作ったアニメ、映画作品のレビューサイトです。
     レビューや、作品の詳細を見たいときは、下記から、作品の頭文字をクリックして、お好きな作品を探してください。
@@ -195,21 +195,21 @@
             <%= link_to 'ご', movies_path(category: 1, initial: 'ご') %>
           </td>
         </tr>
-      <tr>
-        <td class="text-center">
-          <%= link_to 'ざ', movies_path(category: 0, initial: 'ざ') %>
-          <%= link_to 'じ', movies_path(category: 0, initial: 'じ') %>
-          <%= link_to 'ず', movies_path(category: 0, initial: 'ず') %>
-          <%= link_to 'ぜ', movies_path(category: 0, initial: 'ぜ') %>
-          <%= link_to 'ぞ', movies_path(category: 0, initial: 'ぞ') %>
-        </td>
-        <td class="text-center">
-          <%= link_to 'ざ', movies_path(category: 1, initial: 'ざ') %>
-          <%= link_to 'じ', movies_path(category: 1, initial: 'じ') %>
-          <%= link_to 'ず', movies_path(category: 1, initial: 'ず') %>
-          <%= link_to 'ぜ', movies_path(category: 1, initial: 'ぜ') %>
-          <%= link_to 'ぞ', movies_path(category: 1, initial: 'ぞ') %>
-        </td>
+        <tr>
+          <td class="text-center">
+            <%= link_to 'ざ', movies_path(category: 0, initial: 'ざ') %>
+            <%= link_to 'じ', movies_path(category: 0, initial: 'じ') %>
+            <%= link_to 'ず', movies_path(category: 0, initial: 'ず') %>
+            <%= link_to 'ぜ', movies_path(category: 0, initial: 'ぜ') %>
+            <%= link_to 'ぞ', movies_path(category: 0, initial: 'ぞ') %>
+          </td>
+          <td class="text-center">
+            <%= link_to 'ざ', movies_path(category: 1, initial: 'ざ') %>
+            <%= link_to 'じ', movies_path(category: 1, initial: 'じ') %>
+            <%= link_to 'ず', movies_path(category: 1, initial: 'ず') %>
+            <%= link_to 'ぜ', movies_path(category: 1, initial: 'ぜ') %>
+            <%= link_to 'ぞ', movies_path(category: 1, initial: 'ぞ') %>
+          </td>
         </tr>
         <tr>
           <td class="text-center">
