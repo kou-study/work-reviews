@@ -1,5 +1,5 @@
 <% if logged_in? %>
-  <h1 class="p-3 mb-2 bg-light text-dark" id="page-top">このサイトについて</h1>
+  <h2 class="p-3 mb-2 bg-light text-dark" id="page-top">このサイトについて</h2>
   <p>
     ようこそ、<span class="font-weight-bold">「work-reviews」</span>へ。このサイトは、Webアプリケーション学習の集大成として作ったアニメ、映画作品のレビューサイトです。
     レビューや、作品の詳細を見たいときは、下記から、作品の頭文字をクリックして、お好きな作品を探してください。
@@ -23,14 +23,6 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td class='text-center'>
-            <%= image_tag 'animation.jpg', :width => '100%' %>
-          </td>
-          <td class='text-center'>
-            <%= image_tag 'movie.jpg', :width => '100%' %>
-          </td>
-        </tr>
         <tr>
           <td class='text-center'>
             <%= link_to 'あ', movies_path(category: 0, initial: 'あ') %>
