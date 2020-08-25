@@ -13,7 +13,11 @@ Rails.application.routes.draw do
   
   post 'movies/:id/posts', to: 'posts#create'
 
-  resources :movies, only: [:show] 
+  resources :movies, only: [:show] do
+    collection do
+      get :ranking
+    end
+  end
   
   resources :users, only: [:show, :new, :create] do
     member do

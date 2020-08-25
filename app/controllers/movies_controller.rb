@@ -18,4 +18,8 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
     @post = @movie.posts.build
   end
+  
+  def ranking
+    @movies = Movie.order(evaluation: :desc).limit(20)
+  end
 end
