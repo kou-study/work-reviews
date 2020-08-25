@@ -7,6 +7,7 @@ class PostsController < ApplicationController
     
     if @post.save
       flash[:success] = 'レビューを投稿しました'
+      @movie.update_evaluation
       redirect_to movie_url(@movie)
     else
       flash.now[:danger] = 'レビューの投稿に失敗しました'

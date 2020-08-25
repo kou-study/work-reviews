@@ -1,6 +1,6 @@
 <h1 class="text-center mb-3">高評価ランキングTOP20</h1>
 <p class="text-center">
-  ここでは、アニメ作品、映画作品両方を含めて高評価されている作品をTOP20まで紹介します。<br>
+  ここでは、アニメ作品、映画作品両方を含めて評価が高い作品をTOP20まで紹介します。<br>
   皆が評価する作品はどの作品か、是非チェックしてみてください。
 </p>
 
@@ -10,6 +10,7 @@
   <thead class="bg-light">
     <tr>
       <th>順位</th>
+      <th>カテゴリ</th>
       <th>タイトル</th>
       <th>評価</th>
     </tr>
@@ -19,9 +20,16 @@
       <tr>
         <td>
           <% if ranking_id == 1 || ranking_id == 2 || ranking_id == 3 %>
-            <p class="text-danger"><%= ranking_id %>位</p>
+            <span class="text-danger"><%= ranking_id %>位</span>
           <% else %>
-            <p><%= ranking_id %>位</p>
+            <span><%= ranking_id %>位</span>
+          <% end %>
+        </td>
+        <td>
+          <%if movie.category == 0 %>
+            アニメ
+          <% else %>
+            映画
           <% end %>
         </td>
         <td><%= link_to movie.title, movie_path(movie) %></td>
