@@ -2,9 +2,9 @@
   <h2 class="p-3 mb-2 bg-light text-dark" id="page-top">このサイトについて</h2>
   <p>
     ようこそ、<span class="font-weight-bold">「work-reviews」</span>へ。このサイトは、Webアプリケーション学習の集大成として作ったアニメ、映画作品のレビューサイトです。
-    レビューや、作品の詳細を見たいときは、下記から、作品の頭文字をクリックして、お好きな作品を探してください。
+    レビューや、作品の詳細を見たいときは、下記の検索フォームに入力。または、作品の頭文字をクリックして、お好きな作品を探してください。
     お気に入り作品の閲覧、作品評価ランキング、ログアウトは右上のメニューバーからどうぞ。<br>
-    トップページに戻る場合は右上のメニューバー、もしくは、<span style="color: red">左上のロゴ画像</span>をクリックしてください。
+    トップページに戻る場合はページ下部のリンク、もしくは、<span style="color: red">左上のロゴ画像</span>をクリックしてください。
   </p>
   
   <h2 class="p-3 mb-2 bg-light text-dark">作品データベースについて</h2>
@@ -13,7 +13,25 @@
     また、登録作品は、独断と偏見で決めたので、見当たらない作品が多々あるかと思います。
   </p>
   
-  <h2>・作品を探す</h2>
+  <h2 class="p-3 mb-2 bg-light text-dark">作品を探す</h2>
+  <div class="row">
+    <div class="col-sm-6 offset-sm-3">
+      <%= form_with url: '/', method: :get, local: true do |f| %>
+        <div class="form-group">  
+          <%= f.text_field :title, placeholder: '作品タイトル or キーワード', class: 'form-control' %>
+        </div>
+        <%= f.submit '検索する', class: 'btn btn btn-secondary btn-block mb-3'%>
+      <% end %>
+      <div class="d-flex justify-content-center">
+        <ul>
+          <% @movies.each do |movie| %>
+            <li><%= link_to movie.title, movie_path(movie)%></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
   <div>
     <table class='table table-bordered'>
       <thead class="bg-light">

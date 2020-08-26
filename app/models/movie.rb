@@ -8,4 +8,12 @@ class Movie < ApplicationRecord
     def update_evaluation
         self.update(evaluation: self.posts.average("evaluation").round(1))
     end
+    
+    def self.search(search)
+        if search.present?
+            Movie.where('title LIKE ?', "%#{search}%")
+        else
+            Movie.none
+        end
+    end
 end
