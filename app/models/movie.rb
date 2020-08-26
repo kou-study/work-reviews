@@ -10,8 +10,9 @@ class Movie < ApplicationRecord
     end
     
     def self.search(search)
+        movies = Movie.arel_table
         if search.present?
-            Movie.where('title LIKE ?', "%#{search}%")
+            Movie.where(movies[:title].matches("%#{search}%"))
         else
             Movie.none
         end
