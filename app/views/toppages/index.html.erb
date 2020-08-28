@@ -13,7 +13,7 @@
     また、登録作品は、独断と偏見で決めたので、見当たらない作品が多々あるかと思います。
   </p>
   
-  <h2 class="p-3 mb-2 bg-light text-dark">作品を探す</h2>
+  <h2 class="p-3 mb-4 bg-light text-dark">作品を探す</h2>
   <div class="row">
     <div class="col-sm-6 offset-sm-3">
       <%= form_with url: '/', method: :get, local: true do |f| %>
@@ -22,7 +22,8 @@
         </div>
         <%= f.submit '検索する', class: 'btn btn btn-secondary btn-block mb-3'%>
       <% end %>
-      <div class="d-flex justify-content-center">
+      <div class="d-flex justify-content-center mb-3">
+        <%= @notfound_message %>
         <ul>
           <% @movies.each do |movie| %>
             <li><%= link_to movie.title, movie_path(movie)%></li>
@@ -42,228 +43,20 @@
       </thead>
       <tbody>
         <tr>
-          <td class='text-center'>
-            <%= link_to 'あ', movies_path(category: 0, initial: 'あ') %>
-            <%= link_to 'い', movies_path(category: 0, initial: 'い') %>
-            <%= link_to 'う', movies_path(category: 0, initial: 'う') %>
-            <%= link_to 'え', movies_path(category: 0, initial: 'え') %>
-            <%= link_to 'お', movies_path(category: 0, initial: 'お') %>
-          </td>
-          <td class="text-center">
-            <%= link_to 'あ', movies_path(category: 1, initial: 'あ') %>
-            <%= link_to 'い', movies_path(category: 1, initial: 'い') %>
-            <%= link_to 'う', movies_path(category: 1, initial: 'う') %>
-            <%= link_to 'え', movies_path(category: 1, initial: 'え') %>
-            <%= link_to 'お', movies_path(category: 1, initial: 'お') %>
-          </td>
-        </tr>
-        <tr>
-          <td class="text-center">
-            <%= link_to 'か', movies_path(category: 0, initial: 'か') %>
-            <%= link_to 'き', movies_path(category: 0, initial: 'き') %>
-            <%= link_to 'く', movies_path(category: 0, initial: 'く') %>
-            <%= link_to 'け', movies_path(category: 0, initial: 'け') %>
-            <%= link_to 'こ', movies_path(category: 0, initial: 'こ') %>
-          </td>
-          <td class="text-center">
-            <%= link_to 'か', movies_path(category: 1, initial: 'か') %>
-            <%= link_to 'き', movies_path(category: 1, initial: 'き') %>
-            <%= link_to 'く', movies_path(category: 1, initial: 'く') %>
-            <%= link_to 'け', movies_path(category: 1, initial: 'け') %>
-            <%= link_to 'こ', movies_path(category: 1, initial: 'こ') %>
-          </td>
-        </tr>
-        <tr>
-          <td class="text-center">
-            <%= link_to 'さ', movies_path(category: 0, initial: 'さ') %>
-            <%= link_to 'し', movies_path(category: 0, initial: 'し') %>
-            <%= link_to 'す', movies_path(category: 0, initial: 'す') %>
-            <%= link_to 'せ', movies_path(category: 0, initial: 'せ') %>
-            <%= link_to 'そ', movies_path(category: 0, initial: 'そ') %>
-          </td>
-          <td class="text-center">
-            <%= link_to 'さ', movies_path(category: 1, initial: 'さ') %>
-            <%= link_to 'し', movies_path(category: 1, initial: 'し') %>
-            <%= link_to 'す', movies_path(category: 1, initial: 'す') %>
-            <%= link_to 'せ', movies_path(category: 1, initial: 'せ') %>
-            <%= link_to 'そ', movies_path(category: 1, initial: 'そ') %>
-          </td>
-        </tr>
-        <tr>
-          <td class="text-center">
-            <%= link_to 'た', movies_path(category: 0, initial: 'た') %>
-            <%= link_to 'ち', movies_path(category: 0, initial: 'ち') %>
-            <%= link_to 'つ', movies_path(category: 0, initial: 'つ') %>
-            <%= link_to 'て', movies_path(category: 0, initial: 'て') %>
-            <%= link_to 'と', movies_path(category: 0, initial: 'と') %>
-          </td>
-          <td class="text-center">
-            <%= link_to 'た', movies_path(category: 1, initial: 'た') %>
-            <%= link_to 'ち', movies_path(category: 1, initial: 'ち') %>
-            <%= link_to 'つ', movies_path(category: 1, initial: 'つ') %>
-            <%= link_to 'て', movies_path(category: 1, initial: 'て') %>
-            <%= link_to 'と', movies_path(category: 1, initial: 'と') %>
-          </td>
-        </tr>
-        <tr>
-          <td class="text-center">
-            <%= link_to 'な', movies_path(category: 0, initial: 'な') %>
-            <%= link_to 'に', movies_path(category: 0, initial: 'に') %>
-            <%= link_to 'ぬ', movies_path(category: 0, initial: 'ぬ') %>
-            <%= link_to 'ね', movies_path(category: 0, initial: 'ね') %>
-            <%= link_to 'の', movies_path(category: 0, initial: 'の') %>
-          </td>
-          <td class="text-center">
-            <%= link_to 'な', movies_path(category: 1, initial: 'な') %>
-            <%= link_to 'に', movies_path(category: 1, initial: 'に') %>
-            <%= link_to 'ぬ', movies_path(category: 1, initial: 'ぬ') %>
-            <%= link_to 'ね', movies_path(category: 1, initial: 'ね') %>
-            <%= link_to 'の', movies_path(category: 1, initial: 'の') %>
-          </td>
-        </tr>
-        <tr>
-          <td class="text-center">
-            <%= link_to 'は', movies_path(category: 0, initial: 'は') %>
-            <%= link_to 'ひ', movies_path(category: 0, initial: 'ひ') %>
-            <%= link_to 'ふ', movies_path(category: 0, initial: 'ふ') %>
-            <%= link_to 'へ', movies_path(category: 0, initial: 'へ') %>
-            <%= link_to 'ほ', movies_path(category: 0, initial: 'ほ') %>
-          </td>
-          <td class="text-center">
-            <%= link_to 'は', movies_path(category: 1, initial: 'は') %>
-            <%= link_to 'ひ', movies_path(category: 1, initial: 'ひ') %>
-            <%= link_to 'ふ', movies_path(category: 1, initial: 'ふ') %>
-            <%= link_to 'へ', movies_path(category: 1, initial: 'へ') %>
-            <%= link_to 'ほ', movies_path(category: 1, initial: 'ほ') %>
-          </td>
-        </tr>
-        <tr>
-          <td class="text-center">
-            <%= link_to 'ま', movies_path(category: 0, initial: 'ま') %>
-            <%= link_to 'み', movies_path(category: 0, initial: 'み') %>
-            <%= link_to 'む', movies_path(category: 0, initial: 'む') %>
-            <%= link_to 'め', movies_path(category: 0, initial: 'め') %>
-            <%= link_to 'も', movies_path(category: 0, initial: 'も') %>
-          </td>
-          <td class="text-center">
-            <%= link_to 'ま', movies_path(category: 1, initial: 'ま') %>
-            <%= link_to 'み', movies_path(category: 1, initial: 'み') %>
-            <%= link_to 'む', movies_path(category: 1, initial: 'む') %>
-            <%= link_to 'め', movies_path(category: 1, initial: 'め') %>
-            <%= link_to 'も', movies_path(category: 1, initial: 'も') %>
-          </td>
-        </tr>
-        <tr>
-          <td class="text-center">
-            <%= link_to 'や', movies_path(category: 0, initial: 'や') %>
-            <%= link_to 'ゆ', movies_path(category: 0, initial: 'ゆ') %>
-            <%= link_to 'よ', movies_path(category: 0, initial: 'よ') %>
-          </td>
-          <td class="text-center">
-            <%= link_to 'や', movies_path(category: 1, initial: 'や') %>
-            <%= link_to 'ゆ', movies_path(category: 1, initial: 'ゆ') %>
-            <%= link_to 'よ', movies_path(category: 1, initial: 'よ') %>
-          </td>
-        </tr>
-        <tr>
-          <td class="text-center">
-            <%= link_to 'ら', movies_path(category: 0, initial: 'ら') %>
-            <%= link_to 'り', movies_path(category: 0, initial: 'り') %>
-            <%= link_to 'る', movies_path(category: 0, initial: 'る') %>
-            <%= link_to 'れ', movies_path(category: 0, initial: 'れ') %>
-            <%= link_to 'ろ', movies_path(category: 0, initial: 'ろ') %>
-          </td>
-          <td class="text-center">
-            <%= link_to 'ら', movies_path(category: 1, initial: 'ら') %>
-            <%= link_to 'り', movies_path(category: 1, initial: 'り') %>
-            <%= link_to 'る', movies_path(category: 1, initial: 'る') %>
-            <%= link_to 'れ', movies_path(category: 1, initial: 'れ') %>
-            <%= link_to 'ろ', movies_path(category: 1, initial: 'ろ') %>
-          </td>
-        </tr>
-        <tr>
-          <td class="text-center">
-            <%= link_to 'わ', movies_path(category: 0, initial: 'わ') %>
-          </td>
-          <td class="text-center">
-            <%= link_to 'わ', movies_path(category: 1, initial: 'わ') %>
-          </td>
-        </tr>
-        <tr>
-          <td class="text-center">
-            <%= link_to 'が', movies_path(category: 0, initial: 'が') %>
-            <%= link_to 'ぎ', movies_path(category: 0, initial: 'ぎ') %>
-            <%= link_to 'ぐ', movies_path(category: 0, initial: 'ぐ') %>
-            <%= link_to 'げ', movies_path(category: 0, initial: 'げ') %>
-            <%= link_to 'ご', movies_path(category: 0, initial: 'ご') %>
-          </td>
-          <td class="text-center">
-            <%= link_to 'が', movies_path(category: 1, initial: 'が') %>
-            <%= link_to 'ぎ', movies_path(category: 1, initial: 'ぎ') %>
-            <%= link_to 'ぐ', movies_path(category: 1, initial: 'ぐ') %>
-            <%= link_to 'げ', movies_path(category: 1, initial: 'げ') %>
-            <%= link_to 'ご', movies_path(category: 1, initial: 'ご') %>
-          </td>
-        </tr>
-        <tr>
-          <td class="text-center">
-            <%= link_to 'ざ', movies_path(category: 0, initial: 'ざ') %>
-            <%= link_to 'じ', movies_path(category: 0, initial: 'じ') %>
-            <%= link_to 'ず', movies_path(category: 0, initial: 'ず') %>
-            <%= link_to 'ぜ', movies_path(category: 0, initial: 'ぜ') %>
-            <%= link_to 'ぞ', movies_path(category: 0, initial: 'ぞ') %>
-          </td>
-          <td class="text-center">
-            <%= link_to 'ざ', movies_path(category: 1, initial: 'ざ') %>
-            <%= link_to 'じ', movies_path(category: 1, initial: 'じ') %>
-            <%= link_to 'ず', movies_path(category: 1, initial: 'ず') %>
-            <%= link_to 'ぜ', movies_path(category: 1, initial: 'ぜ') %>
-            <%= link_to 'ぞ', movies_path(category: 1, initial: 'ぞ') %>
-          </td>
-        </tr>
-        <tr>
-          <td class="text-center">
-            <%= link_to 'だ', movies_path(category: 0, initial: 'だ') %>
-            <%= link_to 'で', movies_path(category: 0, initial: 'で') %>
-            <%= link_to 'ど', movies_path(category: 0, initial: 'ど') %>
-          </td>
-          <td class="text-center">
-            <%= link_to 'だ', movies_path(category: 1, initial: 'だ') %>
-            <%= link_to 'で', movies_path(category: 1, initial: 'で') %>
-            <%= link_to 'ど', movies_path(category: 1, initial: 'ど') %>
-          </td>
-        </tr>
-         <tr>
-          <td class="text-center">
-            <%= link_to 'ば', movies_path(category: 0, initial: 'ば') %>
-            <%= link_to 'び', movies_path(category: 0, initial: 'び') %>
-            <%= link_to 'ぶ', movies_path(category: 0, initial: 'ぶ') %>
-            <%= link_to 'べ', movies_path(category: 0, initial: 'べ') %>
-            <%= link_to 'ぼ', movies_path(category: 0, initial: 'ぼ') %>
-          </td>
-          <td class="text-center">
-            <%= link_to 'ば', movies_path(category: 1, initial: 'ば') %>
-            <%= link_to 'び', movies_path(category: 1, initial: 'び') %>
-            <%= link_to 'ぶ', movies_path(category: 1, initial: 'ぶ') %>
-            <%= link_to 'べ', movies_path(category: 1, initial: 'べ') %>
-            <%= link_to 'ぼ', movies_path(category: 1, initial: 'ぼ') %>
-          </td>
-        </tr>
-        <tr>
-          <td class="text-center">
-            <%= link_to 'ぱ', movies_path(category: 0, initial: 'ぱ') %>
-            <%= link_to 'ぴ', movies_path(category: 0, initial: 'ぴ') %>
-            <%= link_to 'ぷ', movies_path(category: 0, initial: 'ぷ') %>
-            <%= link_to 'ぺ', movies_path(category: 0, initial: 'ぺ') %>
-            <%= link_to 'ぽ', movies_path(category: 0, initial: 'ぽ') %>
-          </td>
-          <td class="text-center">
-            <%= link_to 'ぱ', movies_path(category: 1, initial: 'ぱ') %>
-            <%= link_to 'ぴ', movies_path(category: 1, initial: 'ぴ') %>
-            <%= link_to 'ぷ', movies_path(category: 1, initial: 'ぷ') %>
-            <%= link_to 'ぺ', movies_path(category: 1, initial: 'ぺ') %>
-            <%= link_to 'ぽ', movies_path(category: 1, initial: 'ぽ') %>
-          </td>
+          <% @letters_set.each do |letters| %>
+            <tr>
+              <td class='text-center'>
+                <% letters.each do |letter| %>
+                  <%= link_to letter, movies_path(category: 0, initial: letter) %>
+                <% end %>
+              </td>
+              <td class='text-center'>
+                <% letters.each do |letter| %>
+                  <%= link_to letter, movies_path(category: 1, initial: letter) %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
         </tr>
       </tbody>
     </table>
