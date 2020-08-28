@@ -10,6 +10,7 @@ class MoviesController < ApplicationController
   def show
     @movie = Movie.find(params[:id])
     @posts = @movie.posts.order(id: :desc).page(params[:page]).per(20)
+    counts_post(@movie)
   end
   
   def posts
