@@ -5,11 +5,7 @@
 
 <div class="row avg_evaluation mb-2">
   <div class="col-sm-6">
-    <% if @posts_average %>
-      <h3 class="text-center font-weight-bold">評価：<%= @posts_average.round(1) %> / 5.0</h3>
-    <% else %>
-      <h3 class="text-center font-weight-bold">評価：<%= @default_evaluation %> / 5.0</h3>
-    <% end %>
+    <h3 class="text-center font-weight-bold">評価：<%= @movie.evaluation %> / 5.0</h3>
   </div>
 </div>
 
